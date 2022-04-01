@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response as HttpResponse;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 
 class AuthRegisterTest extends TestCase
 {
@@ -54,7 +55,7 @@ class AuthRegisterTest extends TestCase
     {
         $roles = ['MANAGER', 'REGULAR'];
         $data = [
-            'name'     => $this->faker->text(256),
+            'name'     => Str::random(256),
             'email'    => $this->faker->email(),
             'password' => $this->faker->password(8, 30),
             'role'     =>  $roles[array_rand($roles)]
